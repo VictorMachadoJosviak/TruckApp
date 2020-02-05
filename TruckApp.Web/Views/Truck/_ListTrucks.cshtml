@@ -1,0 +1,33 @@
+﻿@model List<TruckApp.Infra.DTO.Truck.TruckDTO>
+    <div class="text-center">
+        <div class="row">
+            <div class="col-lg-12">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Nome</th>
+                            <th>Ano de Fabricação</th>
+                            <th>Ano do Modelo</th>
+                            <th>Modelo</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody >
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Name</td>
+                                <td>@item.YearManufacture</td>
+                                <td>@item.ModelYear</td>
+                                <td>@item.Model</td>
+                                <td>
+                                    <a href="@Url.Action("Save","Truck",new { idTruck=item.Id })" class="btn btn-warning"><i class="fa fa-fw fa-edit"></i></a>
+                                    <a data-ajax="true" data-ajax-update="#table-truck" onclick="deleteTruck('@item.Id')" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>

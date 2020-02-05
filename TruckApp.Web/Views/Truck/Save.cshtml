@@ -1,0 +1,62 @@
+﻿@{
+    ViewData["Title"] = "Salvar";
+}
+@model TruckApp.Infra.DTO.Truck.SaveTruckDTO
+
+
+<div class="justify-content-center">
+    <form asp-controller="Truck"  asp-action="Save" method="post">
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(x=>x.Id)
+        <div class="row">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <label>Nome:*</label>
+                    <input asp-for="Name" maxlength="150" type="text" class="form-control" placeholder="Digite o nome do caminhão" />
+                    @Html.ValidationMessageFor(x => x.Name)
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <label>Ano de fabricação:*</label>
+                    <input asp-for="YearManufacture" type="number" class="form-control" placeholder="Digite ano de fabricação" />
+                    @Html.ValidationMessageFor(x => x.YearManufacture)
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <label>Ano do Modelo:*</label>
+                    <input asp-for="ModelYear" type="number" class="form-control" placeholder="Digite o ano do modelo" />
+                    @Html.ValidationMessageFor(x => x.ModelYear)
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4"></div>
+            <div class="m-lg-4">
+                <div class="form-group">
+                    <label>Modelo:*</label>
+                    @Html.DropDownListFor(x => x.ModelId, null, "--- Selecione um Modelo ---", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.ModelId)
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-2">
+                <a href="@Url.Action("Index","Truck")" class="btn btn-info btn-block">Voltar</a>
+            </div>
+            <div class="col-lg-2">
+                <input type="submit" class="btn btn-primary btn-block btn-lg" value="Salvar" />
+            </div>
+        </div>
+    </form>
+</div>
+

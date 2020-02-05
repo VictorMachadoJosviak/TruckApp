@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TruckApp.Infra\TruckApp.Infra.csproj" />
+    <ProjectReference Include="..\TruckApp.Repository\TruckApp.Repository.csproj" />
+    <ProjectReference Include="..\TruckApp.Service\TruckApp.Service.csproj" />
+  </ItemGroup>
+
+</Project>
