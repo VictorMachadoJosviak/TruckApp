@@ -11,5 +11,5 @@ Projeto desenvolvido utilizando arquitetura DDD **(Domain-Driven-Design)** junta
 ## Rodar o projeto
 
 - Selecionar projeto .Web, botão direito => Set as Startup Project
-- Selecionar o projeto .Infra no console,
+- Selecionar o projeto .Infra em **Default Project** no package manager console,
 - Executar o comando `update-database` que ele gerará o banco a partir das migrations já criadas no projeto.
