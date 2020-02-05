@@ -12,12 +12,13 @@ namespace TruckApp.Validators.Truck
         {
             RuleFor(x => x.Name).NotNull().WithMessage("Campo Nome Obrigatório").MaximumLength(150);
 
-            RuleFor(x => x.ModelYear).GreaterThan(0).WithMessage("Campo Ano Modelo é Obrigatório")
+            RuleFor(x => x.ModelYear).NotNull().WithMessage("Campo Ano Modelo é Obrigatório")
                                      .GreaterThanOrEqualTo(DateTime.Now.Year).WithMessage("Ano deve ser maior ou igual aou ano atual");
 
             RuleFor(x => x.ModelId).NotEmpty().WithMessage("Campo Modelo é Obrigatório");
 
-            RuleFor(x => x.YearManufacture).Equal(DateTime.Now.Year).WithMessage($"Ano deve ser o ano atual {DateTime.Now.Year}");
+            RuleFor(x => x.YearManufacture).NotNull().WithMessage("Campo Ano de fabricação obrigatório")
+                .Equal(DateTime.Now.Year).WithMessage($"Ano deve ser o ano atual {DateTime.Now.Year}");
         }
     }
 }
